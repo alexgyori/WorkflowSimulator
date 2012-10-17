@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
+  <uml:Model xmi:id="_Sag30BhpEeKrjfKX3yqepw" name="WorkflowSimulator" URI="ro.upt.pcbe.workflosSimlator">
+    <eAnnotations xmi:id="_7jOFEBhqEeKrjfKX3yqepw" source="com.yattasolutions.codegen.RoundTripInformation">
+      <details xmi:id="_7jOFERhqEeKrjfKX3yqepw" key="AssociatedSourceCode" value="/WorkflowSimulator/src/ro/upt/pcbe/workflowSimulator/State.java;2520225917/1;"/>
+    </eAnnotations>
+    <eAnnotations xmi:id="_kEbp8RhrEeKrjfKX3yqepw" source="http://www.yatta-solutions.com/umllab/codegen/codegenDirectory">
+      <details xmi:id="_kEbp8hhrEeKrjfKX3yqepw" key="codegenDirectory" value="/WorkflowSimulator/src"/>
+    </eAnnotations>
+    <packagedElement xmi:type="uml:Package" xmi:id="_3ompoBhqEeKrjfKX3yqepw" name="upt">
+      <packagedElement xmi:type="uml:Package" xmi:id="_3on3wBhqEeKrjfKX3yqepw" name="pcbe">
+        <packagedElement xmi:type="uml:Package" xmi:id="_3on3wRhqEeKrjfKX3yqepw" name="workflosSimlator">
+          <packagedElement xmi:type="uml:Package" xmi:id="_3on3whhqEeKrjfKX3yqepw" name=""/>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_kEab0BhrEeKrjfKX3yqepw" name="ro">
+      <packagedElement xmi:type="uml:Package" xmi:id="_kEab0RhrEeKrjfKX3yqepw" name="upt">
+        <packagedElement xmi:type="uml:Package" xmi:id="_kEab0hhrEeKrjfKX3yqepw" name="pcbe">
+          <packagedElement xmi:type="uml:Package" xmi:id="_kEab0xhrEeKrjfKX3yqepw" name="workflowSimulator">
+            <packagedElement xmi:type="uml:Class" xmi:id="_kEbp8BhrEeKrjfKX3yqepw" name="State" isAbstract="true"/>
+          </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <profileApplication xmi:id="__mJH8BhqEeKrjfKX3yqepw">
+      <eAnnotations xmi:id="__mK9IBhqEeKrjfKX3yqepw" source="http://www.eclipse.org/uml2/2.0.0/UML">
+        <references xmi:type="ecore:EPackage" href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile"/>
+      </eAnnotations>
+      <appliedProfile href="pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile"/>
+    </profileApplication>
+  </uml:Model>
+  <UMLLabProfile:TargetLanguage xmi:id="__mNZYBhqEeKrjfKX3yqepw" base_Package="_Sag30BhpEeKrjfKX3yqepw">
+    <languageName>java</languageName>
+  </UMLLabProfile:TargetLanguage>
+</xmi:XMI>
