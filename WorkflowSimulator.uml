@@ -2,11 +2,38 @@
 <xmi:XMI xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:UMLLabProfile="http:///schemas/UMLLabProfile/NS/0" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xsi:schemaLocation="http:///schemas/UMLLabProfile/NS/0 pathmap://UMLLAB_PROFILES/UMLLab.profile.uml#UMLLabProfile-Annotation_2-UMLLabProfile">
   <uml:Model xmi:id="_Sag30BhpEeKrjfKX3yqepw" name="WorkflowSimulator" URI="ro.upt.pcbe.workflosSimlator">
     <eAnnotations xmi:id="_7jOFEBhqEeKrjfKX3yqepw" source="com.yattasolutions.codegen.RoundTripInformation">
-      <details xmi:id="_7jOFERhqEeKrjfKX3yqepw" key="AssociatedSourceCode" value="/WorkflowSimulator/src/ro/upt/pcbe/workflowSimulator/State.java;2520225917/1;"/>
+      <details xmi:id="_7jOFERhqEeKrjfKX3yqepw" key="AssociatedSourceCode" value="/WorkflowSimulator/src/ro/upt/pcbe/workflowSimulator/State.java;2520225917/1;/WorkflowSimulator/src/ro/upt/pcbe/workflowSimulator/Environment.java;3416060412/1;"/>
     </eAnnotations>
     <eAnnotations xmi:id="_kEbp8RhrEeKrjfKX3yqepw" source="http://www.yatta-solutions.com/umllab/codegen/codegenDirectory">
       <details xmi:id="_kEbp8hhrEeKrjfKX3yqepw" key="codegenDirectory" value="/WorkflowSimulator/src"/>
     </eAnnotations>
+    <elementImport xmi:id="_qUk84BhsEeKrjfKX3yqepw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
+    </elementImport>
+    <elementImport xmi:id="_qUlj8BhsEeKrjfKX3yqepw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#byte"/>
+    </elementImport>
+    <elementImport xmi:id="_qUlj8RhsEeKrjfKX3yqepw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#char"/>
+    </elementImport>
+    <elementImport xmi:id="_qUlj8hhsEeKrjfKX3yqepw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#double"/>
+    </elementImport>
+    <elementImport xmi:id="_qUlj8xhsEeKrjfKX3yqepw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#float"/>
+    </elementImport>
+    <elementImport xmi:id="_qUlj9BhsEeKrjfKX3yqepw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#int"/>
+    </elementImport>
+    <elementImport xmi:id="_qUmLABhsEeKrjfKX3yqepw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#long"/>
+    </elementImport>
+    <elementImport xmi:id="_qUmLARhsEeKrjfKX3yqepw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#short"/>
+    </elementImport>
+    <elementImport xmi:id="_qXCbABhsEeKrjfKX3yqepw">
+      <importedElement xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+    </elementImport>
     <packagedElement xmi:type="uml:Package" xmi:id="_3ompoBhqEeKrjfKX3yqepw" name="upt">
       <packagedElement xmi:type="uml:Package" xmi:id="_3on3wBhqEeKrjfKX3yqepw" name="pcbe">
         <packagedElement xmi:type="uml:Package" xmi:id="_3on3wRhqEeKrjfKX3yqepw" name="workflosSimlator">
@@ -19,7 +46,51 @@
         <packagedElement xmi:type="uml:Package" xmi:id="_kEab0hhrEeKrjfKX3yqepw" name="pcbe">
           <packagedElement xmi:type="uml:Package" xmi:id="_kEab0xhrEeKrjfKX3yqepw" name="workflowSimulator">
             <packagedElement xmi:type="uml:Class" xmi:id="_kEbp8BhrEeKrjfKX3yqepw" name="State" isAbstract="true"/>
+            <packagedElement xmi:type="uml:Class" xmi:id="_uW0D0B29EeKD-40s2d_aEQ" name="Environment">
+              <ownedAttribute xmi:id="_BsrP0h2_EeKD-40s2d_aEQ" name="variablesMap" visibility="private" type="_C7rZkB2_EeKD-40s2d_aEQ" association="_Bs1A0B2_EeKD-40s2d_aEQ"/>
+              <ownedBehavior xmi:type="uml:OpaqueBehavior" xmi:id="_j_h1AB2_EeKD-40s2d_aEQ" name="getVariable" specification="_D4dAUB2-EeKD-40s2d_aEQ">
+                <ownedParameter xmi:id="_j_h1AR2_EeKD-40s2d_aEQ" name="variableName">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_j_h1Ah2_EeKD-40s2d_aEQ" direction="return">
+                  <name xsi:nil="true"/>
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <language>java</language>
+                <body>return variablesMap.get(variableName);&#xD;
+&#xD;
+</body>
+              </ownedBehavior>
+              <ownedOperation xmi:id="_D4dAUB2-EeKD-40s2d_aEQ" name="getVariable" method="_j_h1AB2_EeKD-40s2d_aEQ">
+                <ownedParameter xmi:id="_XrtIYB2-EeKD-40s2d_aEQ" name="variableName">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_iA2-UB2-EeKD-40s2d_aEQ" direction="return">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+              <ownedOperation xmi:id="_FVb7sB2-EeKD-40s2d_aEQ" name="setVariable">
+                <ownedParameter xmi:id="_kcU7MB2-EeKD-40s2d_aEQ" direction="return"/>
+                <ownedParameter xmi:id="_nOs8MB2-EeKD-40s2d_aEQ" name="variableName">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+                <ownedParameter xmi:id="_tfzG0B2-EeKD-40s2d_aEQ" name="variableValue">
+                  <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+                </ownedParameter>
+              </ownedOperation>
+            </packagedElement>
+            <packagedElement xmi:type="uml:Class" xmi:id="_BsrP0B2_EeKD-40s2d_aEQ" name="ConcurrentHashMap"/>
+            <packagedElement xmi:type="uml:Association" xmi:id="_Bs1A0B2_EeKD-40s2d_aEQ" name="" memberEnd="_Bs1A0R2_EeKD-40s2d_aEQ _BsrP0h2_EeKD-40s2d_aEQ">
+              <ownedEnd xmi:id="_Bs1A0R2_EeKD-40s2d_aEQ" name="" type="_uW0D0B29EeKD-40s2d_aEQ" association="_Bs1A0B2_EeKD-40s2d_aEQ"/>
+            </packagedElement>
           </packagedElement>
+        </packagedElement>
+      </packagedElement>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Package" xmi:id="_C7hokB2_EeKD-40s2d_aEQ" name="java">
+      <packagedElement xmi:type="uml:Package" xmi:id="_C7hokR2_EeKD-40s2d_aEQ" name="util">
+        <packagedElement xmi:type="uml:Package" xmi:id="_C7hokh2_EeKD-40s2d_aEQ" name="concurrent">
+          <packagedElement xmi:type="uml:Class" xmi:id="_C7rZkB2_EeKD-40s2d_aEQ" name="ConcurrentHashMap"/>
         </packagedElement>
       </packagedElement>
     </packagedElement>
@@ -33,4 +104,10 @@
   <UMLLabProfile:TargetLanguage xmi:id="__mNZYBhqEeKrjfKX3yqepw" base_Package="_Sag30BhpEeKrjfKX3yqepw">
     <languageName>java</languageName>
   </UMLLabProfile:TargetLanguage>
+  <UMLLabProfile:Reference xmi:id="_BsrP0R2_EeKD-40s2d_aEQ" base_Element="_BsrP0B2_EeKD-40s2d_aEQ"/>
+  <UMLLabProfile:Generics xmi:id="_BsrP0x2_EeKD-40s2d_aEQ" genericsValue="String,String" base_Element="_BsrP0h2_EeKD-40s2d_aEQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_BsrP1B2_EeKD-40s2d_aEQ" base_Element="_BsrP0h2_EeKD-40s2d_aEQ"/>
+  <UMLLabProfile:Reference xmi:id="_Bs1A0h2_EeKD-40s2d_aEQ" base_Element="_Bs1A0B2_EeKD-40s2d_aEQ"/>
+  <UMLLabProfile:Reference xmi:id="_C7rZkR2_EeKD-40s2d_aEQ" base_Element="_C7rZkB2_EeKD-40s2d_aEQ"/>
+  <UMLLabProfile:LegacyStyledElement xmi:id="_VDv8wB3AEeKD-40s2d_aEQ" base_Element="_FVb7sB2-EeKD-40s2d_aEQ"/>
 </xmi:XMI>

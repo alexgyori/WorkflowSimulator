@@ -3,7 +3,64 @@
   <modelElement href="WorkflowSimulator.uml#_Sag30BhpEeKrjfKX3yqepw"/>
   <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_BDkSwBhsEeKrjfKX3yqepw" name="State" abstractClass="true">
     <modelElement href="WorkflowSimulator.uml#_kEbp8BhrEeKrjfKX3yqepw"/>
-    <visualProperties xmi:id="_BDkSwRhsEeKrjfKX3yqepw" position="296.0,224.0" size="203.0,169.0"/>
+    <visualProperties xmi:id="_BDkSwRhsEeKrjfKX3yqepw" position="333.0,212.0" size="203.0,169.0"/>
     <visibility xmi:id="_BDkSwhhsEeKrjfKX3yqepw" label="+"/>
+  </nodes>
+  <nodes xsi:type="com.yattasolutions.uml.diagrams.classifier:ClassifierVisual" xmi:id="_uW0D0R29EeKD-40s2d_aEQ" name="Environment">
+    <modelElement href="WorkflowSimulator.uml#_uW0D0B29EeKD-40s2d_aEQ"/>
+    <visualProperties xmi:id="_uW0D0h29EeKD-40s2d_aEQ" position="830.0,235.0" size="156.0,125.0"/>
+    <visibility xmi:id="_uW0D0x29EeKD-40s2d_aEQ" label="+"/>
+    <attributes xmi:id="_Bs1A0x2_EeKD-40s2d_aEQ" name="variablesMap">
+      <modelElement href="WorkflowSimulator.uml#_BsrP0h2_EeKD-40s2d_aEQ"/>
+      <stereotypes xmi:id="_Bs1A1B2_EeKD-40s2d_aEQ" name="Generics">
+        <modelElement href="WorkflowSimulator.uml#_BsrP0x2_EeKD-40s2d_aEQ"/>
+      </stereotypes>
+      <stereotypes xmi:id="_Bs1A1R2_EeKD-40s2d_aEQ" name="LegacyStyledElement">
+        <modelElement href="WorkflowSimulator.uml#_BsrP1B2_EeKD-40s2d_aEQ"/>
+      </stereotypes>
+      <visibility xmi:id="_Bs1A1h2_EeKD-40s2d_aEQ" label="-"/>
+      <cardinality xmi:id="_Bs1A1x2_EeKD-40s2d_aEQ" label="1" max="1" min="1"/>
+      <type xmi:id="_C70jgB2_EeKD-40s2d_aEQ" name="ConcurrentHashMap">
+        <modelElement href="WorkflowSimulator.uml#_C7rZkB2_EeKD-40s2d_aEQ"/>
+      </type>
+    </attributes>
+    <operations xmi:id="_D4dAUR2-EeKD-40s2d_aEQ" name="getVariable">
+      <modelElement href="WorkflowSimulator.uml#_D4dAUB2-EeKD-40s2d_aEQ"/>
+      <visibility xmi:id="_D4dAUh2-EeKD-40s2d_aEQ" label="+"/>
+      <outParameters xmi:id="_iA2-UR2-EeKD-40s2d_aEQ">
+        <modelElement href="WorkflowSimulator.uml#_iA2-UB2-EeKD-40s2d_aEQ"/>
+        <type xmi:id="_iA2-Uh2-EeKD-40s2d_aEQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </outParameters>
+      <parameters xmi:id="_XrtIYR2-EeKD-40s2d_aEQ" name="variableName">
+        <modelElement href="WorkflowSimulator.uml#_XrtIYB2-EeKD-40s2d_aEQ"/>
+        <type xmi:id="_aPNm8B2-EeKD-40s2d_aEQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
+    <operations xmi:id="_FVb7sR2-EeKD-40s2d_aEQ" name="setVariable">
+      <modelElement href="WorkflowSimulator.uml#_FVb7sB2-EeKD-40s2d_aEQ"/>
+      <stereotypes xmi:id="_VDv8wR3AEeKD-40s2d_aEQ" name="LegacyStyledElement">
+        <modelElement href="WorkflowSimulator.uml#_VDv8wB3AEeKD-40s2d_aEQ"/>
+      </stereotypes>
+      <visibility xmi:id="_FVb7sh2-EeKD-40s2d_aEQ" label="+"/>
+      <outParameters xmi:id="_kcU7MR2-EeKD-40s2d_aEQ">
+        <modelElement href="WorkflowSimulator.uml#_kcU7MB2-EeKD-40s2d_aEQ"/>
+      </outParameters>
+      <parameters xmi:id="_nOs8MR2-EeKD-40s2d_aEQ" name="variableName">
+        <modelElement href="WorkflowSimulator.uml#_nOs8MB2-EeKD-40s2d_aEQ"/>
+        <type xmi:id="_tN8h0B2-EeKD-40s2d_aEQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+      <parameters xmi:id="_tfzG0R2-EeKD-40s2d_aEQ" name="variableValue">
+        <modelElement href="WorkflowSimulator.uml#_tfzG0B2-EeKD-40s2d_aEQ"/>
+        <type xmi:id="_wdVO8B2-EeKD-40s2d_aEQ" name="String">
+          <modelElement href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+        </type>
+      </parameters>
+    </operations>
   </nodes>
 </com.yattasolutions.uml.diagrams.classifier:ClassDiagram>
