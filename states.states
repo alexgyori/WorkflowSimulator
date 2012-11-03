@@ -1,9 +1,9 @@
-S1=Work1.java
-S2=Work2.java
-S3=Work3.java
-S4=Work4.java
-S5=Work5.java
-S6=Work6.java
+S1=Work1.class
+S2=Work2.class
+S3=Work3.class
+S4=Work4.class
+S5=Work5.class
+S6=Work6.class
 S1,S2,kacsa1=10,kacsa2=20
 S2,S3
 S3,S4,kacsa2=12,kacsa3=40

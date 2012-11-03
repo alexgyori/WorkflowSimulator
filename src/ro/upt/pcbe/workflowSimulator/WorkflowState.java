@@ -1,5 +1,10 @@
 package ro.upt.pcbe.workflowSimulator;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -15,12 +20,31 @@ public class WorkflowState extends Thread {
 
 	private volatile Boolean isDone=false;
 
-	public WorkflowState(String stateName, String classPath){
+	public WorkflowState(String stateName, String classPath) throws InstantiationException, IllegalAccessException{
 		this.stateName=stateName;
-		this.action=null;
 		this.preconditions = new ArrayList<WorkflowState>();
 		this.conditionToState = new HashMap<Condition, WorkflowState>();
-		//TODO: Load and construct an object of the class given and assign it to action
+		
+		Class clas = null;
+		
+		//Load and construct an object of the class given and assign it to action
+		try{
+			String newClassPath = System.getProperty("user.dir")+System.getProperty("file.separator")+"bin"+System.getProperty("file.separator")+classPath;
+			
+			File file = new File(newClassPath);
+			URLClassLoader clazzLoader = URLClassLoader.newInstance(new URL[]{file.toURI().toURL()});
+			String className = classPath.substring(0, classPath.indexOf("."));
+			clas = clazzLoader.loadClass(className);
+			System.out.println("Class "+className+" loaded.");
+			
+		}
+		catch(Exception e){
+			System.out.println("Loading class exception!");
+			e.printStackTrace();
+		}
+		
+		
+		this.action = (StateAction) clas.newInstance();
 
 	}
 
