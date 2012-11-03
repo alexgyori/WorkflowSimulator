@@ -15,11 +15,16 @@ public class Main
 		IParser parser = new Parser();
 		try {
 			List<WorkflowState>list = parser.readStateGraph("states.states");
-			System.out.println(list);
+			//System.out.println(list);
 			
 			Environment e = Environment.getInstance();
 			e.loadEnv("env.env");
-			System.out.println(e);
+			//System.out.println(e);
+			
+			
+			for(WorkflowState w : list)
+				w.start();
+			System.out.println("All workers armed!");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

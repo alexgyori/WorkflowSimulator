@@ -4,7 +4,7 @@ S3=Work3.class
 S4=Work4.class
 S5=Work5.class
 S6=Work6.class
-S1,S2,kacsa1=10,kacsa2=20
+S1,S2,kacsa1=12,kacsa2=20
 S2,S3
 S3,S4,kacsa2=12,kacsa3=40
 S3,S5
