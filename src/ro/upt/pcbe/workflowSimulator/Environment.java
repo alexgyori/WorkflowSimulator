@@ -1,6 +1,8 @@
 package ro.upt.pcbe.workflowSimulator;
 
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.AbstractMap;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -38,4 +40,34 @@ public class Environment {
 		variablesMap.put(variableName, variableValue);
 	}
 
+
+	public void loadEnv(String filename) throws Exception
+	{
+		BufferedReader br;
+		
+		br = new BufferedReader(new FileReader(filename));
+
+		variablesMap.clear();
+		
+		String line;
+		while ((line = br.readLine()) != null) {
+			
+		String[] e =	line.split("=");
+		if(e.length != 2)
+			throw new Exception("no environment entry found!");
+		
+			setVariable(e[0], e[1]);
+		}
+		br.close();
+	}
+	
+	public String toString()
+	{
+		String s="";
+		for(String key : variablesMap.keySet())
+		{
+			s+=key+"="+variablesMap.get(key)+"\n";
+		}
+		return s;
+	}
 }

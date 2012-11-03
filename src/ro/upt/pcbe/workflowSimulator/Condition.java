@@ -21,4 +21,14 @@ public class Condition {
 		
 		return true;
 	}
+	
+	public String toString()
+	{
+		String s ="Condition: ";
+		for(String varName : conditions.keySet())
+		{
+			s+=varName+"="+conditions.get(varName)+" ";
+		}
+		return s;
+	}
 }

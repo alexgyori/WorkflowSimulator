@@ -4,8 +4,7 @@ import java.util.List;
 
 public interface IParser {
 
-	public List<WorkflowState> readStateGraph(String filename);
+	public List<WorkflowState> readStateGraph(String filename) throws Exception;
 	
-	public Environment readEnv(String filename);
 	
 }

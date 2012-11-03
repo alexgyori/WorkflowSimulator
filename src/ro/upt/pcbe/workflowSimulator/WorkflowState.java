@@ -18,7 +18,8 @@ public class WorkflowState extends Thread {
 	public WorkflowState(String stateName, String classPath){
 		this.stateName=stateName;
 		this.action=null;
-
+		this.preconditions = new ArrayList<WorkflowState>();
+		this.conditionToState = new HashMap<Condition, WorkflowState>();
 		//TODO: Load and construct an object of the class given and assign it to action
 
 	}
@@ -27,11 +28,18 @@ public class WorkflowState extends Thread {
 		this.preconditions = new ArrayList<WorkflowState>(ls);
 	}
 
-	public void setConditionToState(Map<Condition, WorkflowState> cond2state)
+	public void addPrecondition(WorkflowState s){
+		this.preconditions.add(s);
+	}
+	
+	public void setConditionsToStates(Map<Condition, WorkflowState> cond2state)
 	{
 		conditionToState=new HashMap<Condition, WorkflowState>(cond2state);
 	}
 
+	public void addConditionToState(Condition c, WorkflowState s){
+		this.conditionToState.put(c,s);
+	}
 
 	private boolean isDone(){
 		return isDone;
@@ -67,5 +75,23 @@ public class WorkflowState extends Thread {
 			}
 		}
 	}
+
+	@Override
+	public String toString() {
+		String s="State:"+stateName+"\n\tPreconditions:";
+		if(preconditions != null)
+		for(WorkflowState w : preconditions)
+		{
+			s+=w.stateName+", ";
+		}
+		s+="\n\tTransitions:\n";
+		for(Condition c: conditionToState.keySet())
+		{
+			s+="\t\tif "+c+" goto "+conditionToState.get(c).stateName+"\n";
+		}
+		return s;		
+	}
+	
+	
 
 }
