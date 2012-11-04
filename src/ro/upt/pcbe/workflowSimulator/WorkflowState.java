@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.concurrent.CountDownLatch;
 
 
@@ -66,52 +67,65 @@ public class WorkflowState extends Thread {
 		this.conditionToState.put(c,s);
 	}
 
-	private boolean isDone(){
-		return isDone;
+	private boolean isDone(WorkflowState wfState){
+		return isDone && preconditionsAreMet(wfState);
+	}
+
+	private boolean preconditionsAreMet(WorkflowState wfState) {
+		// TODO Auto-generated method stub
+		for(Entry<Condition, WorkflowState> entry :this.conditionToState.entrySet())
+		{
+			if(entry.getValue().equals(wfState))
+				if(entry.getKey().evaluate(Environment.getInstance()))
+					return true;
+		}
+		return false;
 	}
 
 	private boolean isStartable(){
-		
+
 		for(WorkflowState s : preconditions)
 		{
-			if(!s.isDone())
+			if(!s.isDone(this))
 				return false;
 		}
 		return true;
 	}
 
 	@Override
-	public void run(){
+	public synchronized void run(){
 		//while(true){
-		try {
+		/*try {
 			this.latch.await();//wait until main thread says it's ok to go
 		} catch (InterruptedException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 			return;
-		}
-		synchronized (this) {
-			System.out.println("["+stateName+"] waiting..");
-			while(!this.isStartable())
-				try {
-					wait();
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-		}
+		}*/
+
+
+		while(!this.isStartable())
+			try {
+				System.out.println("["+stateName+"] waiting..");
+				wait();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
 		System.out.println("["+stateName+"] all starting conditions met..");
 		action.run(Environment.getInstance());
 		isDone=true;
+		System.out.println(Environment.getInstance().toString());
 		for(Condition cond : this.conditionToState.keySet())
 		{
-			if(cond.evaluate(Environment.getInstance())){
-				//TODO: Add call to state to signal true conditions
-				synchronized(this.conditionToState.get(cond))
-				{
-					this.conditionToState.get(cond).notifyAll();
-				}
+			//if(cond.evaluate(Environment.getInstance())){
+			//TODO: Add call to state to signal true conditions
+			synchronized(this.conditionToState.get(cond))
+			{
+				this.conditionToState.get(cond).notifyAll();
 			}
+			//}
 		}
 		System.out.println("["+stateName+"] worker retiring..");
 		//}	

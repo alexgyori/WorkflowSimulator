@@ -23,14 +23,18 @@ public class Environment {
 		{
 			synchronized(Environment.class)
 			{
-				if(env == null)
-					env=new Environment();
+				if(env == null){
+					
+					env=new Environment();				
+				}
 			}
 		}
 		return env;
 	}
 
 
+	
+	
 	public String getVariable(String variableName) {
 		return variablesMap.get(variableName);
 
