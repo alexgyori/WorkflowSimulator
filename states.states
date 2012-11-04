@@ -6,7 +6,7 @@ S5=Work5.class
 S6=Work6.class
 S1,S2,kacsa1=12,kacsa2=20
 S2,S3
-S3,S4,kacsa2=12,kacsa3=40
+S3,S4,kacsa2=20,kacsa3=40
 S3,S5
 S4,S6
 S5,S6

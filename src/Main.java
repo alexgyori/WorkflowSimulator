@@ -1,5 +1,6 @@
 
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 import ro.upt.pcbe.workflowSimulator.Environment;
 import ro.upt.pcbe.workflowSimulator.IParser;
@@ -11,10 +12,10 @@ public class Main
 	public static void main(String[] args)
 	{
 		System.out.println("Runnning....");
-		
+		CountDownLatch latch = new CountDownLatch(1);
 		IParser parser = new Parser();
 		try {
-			List<WorkflowState>list = parser.readStateGraph("states.states");
+			List<WorkflowState>list = parser.readStateGraph("states.states",latch);
 			//System.out.println(list);
 			
 			Environment e = Environment.getInstance();
@@ -24,12 +25,13 @@ public class Main
 			
 			for(WorkflowState w : list)
 				w.start();
+			latch.countDown();
 			System.out.println("All workers armed!");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
-		System.out.println("Stopped.....");
+		System.out.println("Main thread stopped.....");
 	}
 }

@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 public class Parser implements IParser {
 
 	@Override
-	public List<WorkflowState> readStateGraph(String filename) throws Exception{
+	public List<WorkflowState> readStateGraph(String filename, CountDownLatch startLatch) throws Exception{
 
 		int nr=0;
 		BufferedReader br;
@@ -41,7 +42,7 @@ public class Parser implements IParser {
 				}
 				else
 				{
-					s1 = new WorkflowState(e[0],e[1]);
+					s1 = new WorkflowState(e[0],e[1],startLatch);
 					stateMap.put(e[0], s1);
 				}
 			}

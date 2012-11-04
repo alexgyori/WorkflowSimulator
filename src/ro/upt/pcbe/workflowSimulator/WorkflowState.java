@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.CountDownLatch;
 
 
 public class WorkflowState extends Thread {
@@ -17,11 +18,13 @@ public class WorkflowState extends Thread {
 	private Map<Condition,WorkflowState> conditionToState;
 
 	private volatile Boolean isDone=false;
+	private CountDownLatch latch;
 
-	public WorkflowState(String stateName, String classPath) throws InstantiationException, IllegalAccessException{
+	public WorkflowState(String stateName, String classPath, CountDownLatch startLatch) throws InstantiationException, IllegalAccessException{
 		this.stateName=stateName;
 		this.preconditions = new ArrayList<WorkflowState>();
 		this.conditionToState = new HashMap<Condition, WorkflowState>();
+		this.latch = startLatch;
 
 		Class clas = null;
 
@@ -68,6 +71,7 @@ public class WorkflowState extends Thread {
 	}
 
 	private boolean isStartable(){
+		
 		for(WorkflowState s : preconditions)
 		{
 			if(!s.isDone())
@@ -79,6 +83,13 @@ public class WorkflowState extends Thread {
 	@Override
 	public void run(){
 		//while(true){
+		try {
+			this.latch.await();//wait until main thread says it's ok to go
+		} catch (InterruptedException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			return;
+		}
 		synchronized (this) {
 			System.out.println("["+stateName+"] waiting..");
 			while(!this.isStartable())
@@ -87,24 +98,26 @@ public class WorkflowState extends Thread {
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}		
-			System.out.println("["+stateName+"] all starting conditions met..");
-			action.run(Environment.getInstance());
-			isDone=true;
-			for(Condition cond : this.conditionToState.keySet())
-			{
-				if(cond.evaluate(Environment.getInstance())){
-					//TODO: Add call to state to signal true conditions
-					synchronized(this.conditionToState.get(cond))
-					{
-						this.conditionToState.get(cond).notify();
-					}
+				}
+		}
+		System.out.println("["+stateName+"] all starting conditions met..");
+		action.run(Environment.getInstance());
+		isDone=true;
+		for(Condition cond : this.conditionToState.keySet())
+		{
+			if(cond.evaluate(Environment.getInstance())){
+				//TODO: Add call to state to signal true conditions
+				synchronized(this.conditionToState.get(cond))
+				{
+					this.conditionToState.get(cond).notifyAll();
 				}
 			}
-			//}	
 		}
-
+		System.out.println("["+stateName+"] worker retiring..");
+		//}	
 	}
+
+
 
 	@Override
 	public String toString() {

@@ -1,10 +1,12 @@
 package ro.upt.pcbe.workflowSimulator;
 
 import java.util.List;
+import java.util.concurrent.CountDownLatch;
 
 public interface IParser {
 
-	public List<WorkflowState> readStateGraph(String filename) throws Exception;
+	List<WorkflowState> readStateGraph(String filename,
+			CountDownLatch startLatch) throws Exception;
 	
 	
 }
