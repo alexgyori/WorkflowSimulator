@@ -5,8 +5,7 @@ import java.util.concurrent.CountDownLatch;
 
 public interface IParser {
 
-	List<WorkflowState> readStateGraph(String filename,
-			CountDownLatch startLatch) throws Exception;
+	List<WorkflowState> readStateGraph(String filename) throws Exception;
 	
 	
 }

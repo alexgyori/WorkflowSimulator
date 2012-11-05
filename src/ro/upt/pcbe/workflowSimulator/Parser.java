@@ -11,7 +11,7 @@ import java.util.concurrent.CountDownLatch;
 public class Parser implements IParser {
 
 	@Override
-	public List<WorkflowState> readStateGraph(String filename, CountDownLatch startLatch) throws Exception{
+	public List<WorkflowState> readStateGraph(String filename) throws Exception{
 
 		int nr=0;
 		BufferedReader br;
@@ -42,7 +42,7 @@ public class Parser implements IParser {
 				}
 				else
 				{
-					s1 = new WorkflowState(e[0],e[1],startLatch);
+					s1 = new WorkflowState(e[0],e[1]);
 					stateMap.put(e[0], s1);
 				}
 			}

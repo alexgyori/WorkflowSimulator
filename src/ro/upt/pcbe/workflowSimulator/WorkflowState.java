@@ -19,13 +19,13 @@ public class WorkflowState extends Thread {
 	private Map<Condition,WorkflowState> conditionToState;
 
 	private volatile Boolean isDone=false;
-	private CountDownLatch latch;
 
-	public WorkflowState(String stateName, String classPath, CountDownLatch startLatch) throws InstantiationException, IllegalAccessException{
+
+	public WorkflowState(String stateName, String classPath) throws InstantiationException, IllegalAccessException{
 		this.stateName=stateName;
 		this.preconditions = new ArrayList<WorkflowState>();
 		this.conditionToState = new HashMap<Condition, WorkflowState>();
-		this.latch = startLatch;
+
 
 		Class clas = null;
 
